@@ -12,9 +12,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.5');
-
+  api.use(['templating'], 'client');
   api.use('softbricks:user-management', ['client', 'server']);
+  api.use('materialize:materialize',['client']);
   api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
+  api.addFiles(['lib/templates/users/showUsers.html'], 'client');
+  api.addFiles(['lib/templates/users/showUsers.js'], 'client');
+  api.addFiles(['lib/templates/users/sideBarElement.html'], 'client');
+  api.addFiles(['lib/templates/users/sideBarElement.js'], 'client');
 });
 
 Package.onTest(function(api) {

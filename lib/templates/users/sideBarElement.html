@@ -1,0 +1,43 @@
+<template name="sideBarElement">
+    <a id="closeSideBar" class="waves-effect waves-teal btn-flat btn-large btn-sidebar-close">
+        <i class="medium mdi-navigation-arrow-forward"></i>
+    </a>
+    {{#with user}}
+    <div>
+        <img src="http://lorempixel.com/200/200/people" alt="" class="circle responsive-img center-image">
+    </div>
+    <div class="row">
+        <form class="col s12 l12">
+            <div class="row">
+                <div class="input-field col s12 l12">
+                    <i class="mdi-action-perm-identity prefix"></i>
+                    <input id="fullname" value="{{this.profile.fullname}}" type="text" class="validate">
+                    <label class="active" for="fullname">Fullname</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi-action-perm-identity prefix"></i>
+                    <input id="username" value="{{this.username}}" type="text" class="validate">
+                    <label class="active" for="username">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                    <input id="email" type="email" value="{{email}}" class="validate">
+                    <label class="active" for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="mdi-action-https prefix"></i>
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    {{/with}}
+</template>
