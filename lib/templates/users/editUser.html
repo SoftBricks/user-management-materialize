@@ -1,0 +1,49 @@
+<template name="umEditUser">
+    {{#autoForm collection=users doc=this id="createUserForm" type="update"  validation="keyup" class="col s12 l12"}}
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                {{> afFieldInput id="fullname" name="profile.fullname" autocomplete="off" class="validate"}}
+                <label class="active" for="fullname">Fullname</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-communication-email prefix"></i>
+                {{> afFieldInput id="email" name="emails.0.address" autocomplete="off" class="validate"}}
+                <label class="active" for="email">Email</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                {{> afFieldInput id="username" name="username" autocomplete="off" class="validate"}}
+                <label class="active" for="username">Username</label>
+            </div>
+        </div>
+
+            <!--{{#if isInRole 'admin,superAdmin'}}-->
+            <!--{{#each currentRoles}}-->
+                <!--{{#if isField 'superAdmin'}}-->
+                <!--<input type="checkbox" disabled readonly id="{{this.name}}" name="roles"-->
+                <!--checked="{{userHasRight}}">-->
+                <!--<label for="admin">{{this.name}}</label>-->
+                    <!--{{else}}-->
+                <!--<input type="checkbox" id="{{this.name}}" name="roles"-->
+                <!--checked="{{userHasRight}}">-->
+                <!--<label for="admin">{{this.name}}</label>-->
+                    <!--{{/if}}-->
+                <!--{{/each}}-->
+        <!--<input type="checkbox" id="admin" name="admin" checked="{{admin}}"/>-->
+        <!--<label for="admin">Admin</label>-->
+            <!--{{/if}}-->
+        <!--{{> afQuickField name="profile.activated"}}-->
+        <!--{{> afQuickField name="profile.fields"}}-->
+
+            <!--{{#each globalFields}}-->
+        <!--{{> afQuickField name=this.name}}-->
+            <!--{{/each}}-->
+
+        <div>
+            <button type="submit" class="btn btn-primary">{{save}}</button>
+            <button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>
+            <a href="/showUser/{{_id}}">{{abort}}</a>
+        </div>
+    {{/autoForm}}
+</template>

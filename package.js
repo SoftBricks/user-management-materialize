@@ -15,11 +15,16 @@ Package.onUse(function(api) {
   api.use(['templating'], 'client');
   api.use('softbricks:user-management', ['client', 'server']);
   api.use('materialize:materialize',['client']);
+  api.use('fastclick', ['client']);
   api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
   api.addFiles(['lib/templates/users/showUsers.html'], 'client');
   api.addFiles(['lib/templates/users/showUsers.js'], 'client');
   api.addFiles(['lib/templates/users/sideBarElement.html'], 'client');
   api.addFiles(['lib/templates/users/sideBarElement.js'], 'client');
+  api.addFiles(['lib/templates/users/showUser.html','lib/templates/users/showUser.js'], 'client');
+  api.addFiles(['lib/templates/users/editUser.html','lib/templates/users/editUser.js'], 'client');
+
+
 });
 
 Package.onTest(function(api) {
