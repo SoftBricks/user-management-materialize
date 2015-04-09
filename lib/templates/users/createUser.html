@@ -1,0 +1,41 @@
+<template name="umAddUser">
+    <div id="createuser" class="modal modal-fixed-footer">
+        <div class="modal-header">
+            <a href="" class="modal-action modal-close waves-effect waves-green btn-flat modal-header-button right">Save</a>
+            <a href="/users" class="modal-action modal-close waves-effect waves-green btn-flat modal-header-button left"><i class="mdi-navigation-close"></i></a>
+        </div>
+        <div class="modal-content">
+            <h4>Create User</h4>
+            {{#autoForm collection=users id="createUserForm" type="method" meteormethod="createUserWithoutPassword" validation="keyup"}}
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                    {{> afFieldInput name="profile.fullname" autocomplete="off"}}
+                <label class="active" for="fullname">Fullname</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-communication-email prefix"></i>
+                    {{> afFieldInput name="emails.0.address" autocomplete="off"}}
+                <label class="active" for="email">Email</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                    {{> afFieldInput name="username" autocomplete="off"}}
+                <label class="active" for="username">Username</label>
+            </div>
+                    {{#if groups}}
+                        {{> afFieldInput name="profile.groups"}}
+                    {{/if}}
+                    <!--{{> afFieldInput name="profile.fields"}}-->
+
+                    {{#each globalFields}}
+                        {{> afFieldInput name=this.name}}
+                    {{/each}}
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">{{save}}</button>
+                        <button type="reset" class="btn btn-default">{{abort}}</button>
+                    </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>
