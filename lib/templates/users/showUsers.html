@@ -1,6 +1,6 @@
 <template name="umShowUsers">
-    <div class="row noPadding">
-        <ul class="collection z-depth-1 col {{grid}} noPadding noMarginTop">
+    <!--<div class="row noPadding">-->
+        <ul class="collection z-depth-1 noPadding noMarginTop">
             {{#each users}}
                 <li id="{{this._id}}" class="collection-item avatar {{clicked}}">
                     <a href="/users/show/{{this._id}}" style="display:block;height:100%;">
@@ -14,5 +14,5 @@
                 </li>
             {{/each}}
         </ul>
-    </div>
+    <!--</div>-->
 </template>

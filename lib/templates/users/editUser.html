@@ -1,19 +1,19 @@
 <template name="umEditUser">
-    {{#autoForm collection=users doc=this id="createUserForm" type="update"  validation="keyup" class="col s12 l12"}}
+    {{#autoForm collection=users doc=this id="editUserForm" type="update"  validation="keyup" class="col s12 l12"}}
         <div class="row">
             <div class="input-field col s12 m12 l12">
                 <i class="mdi-action-perm-identity prefix"></i>
-                {{> afFieldInput id="fullname" name="profile.fullname" autocomplete="off" class="validate"}}
+                {{> afFieldInput name="profile.fullname" autocomplete="off" value=this.profile.fullname class="validate"}}
                 <label class="active" for="fullname">Fullname</label>
             </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-communication-email prefix"></i>
-                {{> afFieldInput id="email" name="emails.0.address" autocomplete="off" class="validate"}}
-                <label class="active" for="email">Email</label>
-            </div>
+            <!--<div class="input-field col s12 m12 l12">-->
+                <!--<i class="mdi-communication-email prefix"></i>-->
+                <!--{{> afFieldInput name="emails.0.address" autocomplete="off" value=email class="validate"}}-->
+                <!--<label class="active" for="email">Email</label>-->
+            <!--</div>-->
             <div class="input-field col s12 m12 l12">
                 <i class="mdi-action-perm-identity prefix"></i>
-                {{> afFieldInput id="username" name="username" autocomplete="off" class="validate"}}
+                {{> afFieldInput name="username" autocomplete="off" value=this.username class="validate"}}
                 <label class="active" for="username">Username</label>
             </div>
         </div>
@@ -42,8 +42,7 @@
 
         <div>
             <button type="submit" class="btn btn-primary">{{save}}</button>
-            <button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>
-            <a href="/showUser/{{_id}}">{{abort}}</a>
+            <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
         </div>
     {{/autoForm}}
 </template>
