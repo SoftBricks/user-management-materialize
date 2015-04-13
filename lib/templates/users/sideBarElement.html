@@ -1,11 +1,11 @@
 <template name="sideBarElement">
     <div id="sidebar" class="sidebar-right right-aligned col l5 m5 s12 {{depth}}">
-        <a href="{{back}}" id="closeSideBar" class="waves-effect waves-teal btn-flat btn-large btn-sidebar-close">
+        <a href="{{back}}" id="closeSideBar" class="btn-icon waves-effect btn-sidebar-close">
             <i id="closeIcon" class="medium {{backIcon}}"></i>
         </a>
         {{#if show}}
         <a href="/users/edit/{{currentUser}}" id="sideBarEdit"
-           class="right waves-effect waves-teal btn-flat btn-large btn-sidebar-edit">
+           class="right btn-icon waves-effect btn-sidebar-edit">
             <i class="medium mdi-editor-mode-edit"></i>
         </a>
         {{/if}}
