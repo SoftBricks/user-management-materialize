@@ -13,9 +13,9 @@
                         {{> afFieldInput name="leader" id="leader" autocomplete="off"}}
                         <label class="active" for="leader">Leader</label>
                     </div>
-                    <ul>
+                    <ul class="collection">
                         {{#each getLeaders}}
-                            <li class="fullname">{{email}}</li>
+                            <li class="colletion-item fullname">{{email}}</li>
                         {{/each}}
                     </ul>
 
@@ -26,13 +26,20 @@
                     <!--{{#if projects}}-->
                         <!--{{> afQuickField name="projects"}}-->
                     <!--{{/if}}-->
-
-                    {{> afQuickField name="parentGroup" id="parentGroupName"}}
-                    <ul>
+                    <div class="input-field col s12 m12 l12">
+                        <i class="mdi-communication-email prefix"></i>
+                            {{> afFieldInput name="parentGroup" id="parentGroupName"}}
+                        <label class="active" for="parentGroup">Parent Group</label>
+                    </div>
+                    <ul class="collection">
                         {{#each getSubGroups}}
-                            <li class="parentGroup">{{groupname}}</li>
+                            <li class="colletion-item parentGroup">{{groupname}}</li>
                         {{/each}}
                     </ul>
+                <div class="modal-footer-custom">
+                    <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat right">Save</button>
+                    <a href="/groups" class="modal-action modal-close waves-effect waves-green btn-flat left"><i class="mdi-navigation-close"></i></a>
+                </div>
             {{/autoForm}}
         </div>
     </div>
