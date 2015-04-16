@@ -26,6 +26,7 @@ Package.onUse(function(api) {
   api.addFiles(['lib/templates/users/editUser.html','lib/templates/users/editUser.js'], 'client');
   api.addFiles(['lib/templates/users/createUser.html','lib/templates/users/createUser.js'], 'client');
   api.addFiles(['lib/templates/groups/showGroups.html','lib/templates/groups/showGroups.js'], 'client');
+  api.addFiles(['lib/templates/groups/createGroup.html','lib/templates/groups/createGroup.js'], 'client');
 
 
 });
