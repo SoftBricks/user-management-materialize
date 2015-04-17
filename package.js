@@ -31,6 +31,13 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('softbricks:user-management-materialize');
+
+  api.use(['mike:mocha-package@0.5.6', "practicalmeteor:chai"]);
+  api.use('softbricks:user-management', ['client', 'server']);
+  api.use(['accounts-password']);
+  api.use('meteorhacks:flow-router');
+
+  api.addFiles('tests/client/sampleClientTest.js', ['client']);
+  api.addFiles('tests/server/sampleServerTest.js', ['server']);
+
 });
