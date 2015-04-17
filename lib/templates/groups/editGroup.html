@@ -1,0 +1,18 @@
+<template name="umEditGroup">
+    {{#autoForm collection=groups doc=this id="editGroupForm" type="update"  validation="keyup" class="col s12 l12"}}
+        <div class="row">
+            <div class="input-field col s12 m12 l12">
+                <i class="mdi-action-perm-identity prefix"></i>
+                {{> afFieldInput name="groupname" autocomplete="off" value=this.groupname class="validate"}}
+                <label class="active" for="groupname">Groupname</label>
+            </div>
+        </div>
+
+    TODO
+
+        <div>
+            <button type="submit" class="btn btn-primary">{{save}}</button>
+            <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
+        </div>
+    {{/autoForm}}
+</template>

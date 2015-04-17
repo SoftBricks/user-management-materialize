@@ -1,0 +1,25 @@
+<template name="sideBarElementGroup">
+    <div id="sidebar" class="sidebar-right right-aligned col l5 m5 s12 {{depth}}">
+        <a href="{{back}}" id="closeSideBar" class="btn-icon waves-effect btn-sidebar-close">
+            <i id="closeIcon" class="medium {{backIcon}}"></i>
+        </a>
+        {{#if show}}
+            <a href="/groups/edit/{{currentGroup}}" id="sideBarEdit"
+               class="right btn-icon waves-effect btn-sidebar-edit">
+                <i class="medium mdi-editor-mode-edit"></i>
+            </a>
+        {{/if}}
+        {{#with group}}
+            <div>
+                <img src="http://lorempixel.com/200/200/people" alt="" class="circle responsive-img center-image">
+            </div>
+            <div class="row">
+                {{#if edit}}
+                    {{> umEditGroup}}
+                {{else}}
+                    {{> umShowGroup}}
+                {{/if}}
+            </div>
+        {{/with}}
+    </div>
+</template>

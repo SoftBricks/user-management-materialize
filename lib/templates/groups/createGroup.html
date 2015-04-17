@@ -1,0 +1,46 @@
+<template name="umAddGroup">
+    {{test}}
+    <div id="creategroup" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            {{#autoForm collection=groups id="createGroupForm" type="method" meteormethod="createGroup" validation="keyup"}}
+                    <div class="input-field col s12 m12 l12">
+                        <i class="mdi-communication-email prefix"></i>
+                            {{> afFieldInput name="groupname" autocomplete="off"}}
+                        <label class="active" for="groupname">Groupname</label>
+                    </div>
+                    <div class="input-field col s12 m12 l12">
+                        <i class="mdi-communication-email prefix"></i>
+                        {{> afFieldInput name="leader" id="leader" autocomplete="off"}}
+                        <label class="active" for="leader">Leader</label>
+                    </div>
+                    <ul class="collection">
+                        {{#each getLeaders}}
+                            <li class="colletion-item fullname">{{email}}</li>
+                        {{/each}}
+                    </ul>
+
+                    <!--{{#if agency}}-->
+                        <!--{{> afQuickField name="agency" autocomplete="off"}}-->
+                    <!--{{/if}}-->
+
+                    <!--{{#if projects}}-->
+                        <!--{{> afQuickField name="projects"}}-->
+                    <!--{{/if}}-->
+                    <div class="input-field col s12 m12 l12">
+                        <i class="mdi-communication-email prefix"></i>
+                            {{> afFieldInput name="parentGroup" id="parentGroupName"}}
+                        <label class="active" for="parentGroup">Parent Group</label>
+                    </div>
+                    <ul class="collection">
+                        {{#each getSubGroups}}
+                            <li class="colletion-item parentGroup">{{groupname}}</li>
+                        {{/each}}
+                    </ul>
+                <div class="modal-footer-custom">
+                    <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat right">Save</button>
+                    <a href="/groups" class="modal-action modal-close waves-effect waves-green btn-flat left"><i class="mdi-navigation-close"></i></a>
+                </div>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>
