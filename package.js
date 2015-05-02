@@ -18,6 +18,10 @@ Package.onUse(function(api) {
   api.use('fastclick', ['client']);
   api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
   api.addFiles(['lib/style.css'], 'client');
+
+  api.addFiles(['lib/templates/components/infoItem.html', 'lib/templates/components/infoItem.js'], 'client');
+  api.addFiles(['lib/templates/components/autoView.html', 'lib/templates/components/autoView.js'], 'client');
+
   api.addFiles(['lib/templates/users/showUsers.html'], 'client');
   api.addFiles(['lib/templates/users/showUsers.js'], 'client');
   api.addFiles(['lib/templates/users/sideBarElement.html'], 'client');

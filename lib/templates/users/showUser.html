@@ -1,6 +1,13 @@
 <template name="umShowUser">
-    <form class="col s12 l12">
-        <div class="row">
+    <div id="test" class="col s12 l12">
+      <!-- <ul class="collection collection-medium">
+        {{> infoItem value=this.profile.fullname}}
+      </ul> -->
+      {{#autoView id="showUserInfo" schema=userschema doc=this}}
+        {{>infoItem name="profile.fullname"}}
+        {{>infoItem name="username"}}
+      {{/autoView}}
+        <!-- <div class="row">
             <div class="input-field col s12 m12 l12">
                 <i class="mdi-action-perm-identity prefix"></i>
                 <input disabled id="fullname" value="{{this.profile.fullname}}" type="text" class="validate">
@@ -16,6 +23,6 @@
                 <input disabled id="email" type="email" value="{{email}}" class="validate">
                 <label class="active" for="email">Email</label>
             </div>
-        </div>
-    </form>
+        </div> -->
+    </div>
 </template>
