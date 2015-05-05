@@ -1,17 +1,17 @@
 <template name="umShowUsers">
-    <!--<div class="row noPadding">-->
-        <div class="collection collection-medium noPadding noMarginTop">
-            {{#each users}}
-                <a id="{{this._id}}" href="/users/show/{{this._id}}" class="collection-item avatar {{clicked}} waves-effect">
-                  <div class="collection-item-avatar">
-                    <img src="http://lorempixel.com/150/150/people" alt="" class="circle">
-                  </div>
-                  <div class="collection-item-text">
-                    <div class="primary">{{this.username}}</div>
-                    <div class="secondary">{{this.profile.fullname}}</div>
-                  </div>
-                </a>
-            {{/each}}
+  <div class="um">
+      {{#each users}}
+      <div class="list-item">
+        <div>
+          <img src="{{gravatar}}" alt="" class="circle">
         </div>
-    <!--</div>-->
+        <div>
+          <div>
+            <div class="primary">{{this.username}}</div>
+            <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+  </div>
 </template>
