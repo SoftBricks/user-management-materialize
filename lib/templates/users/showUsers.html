@@ -11,7 +11,15 @@
             <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
           </div>
         </div>
+        <div>
+          <button id="enroll" class="btn waves-effect waves-light">Enroll
+            <i class="mdi-content-send right"></i>
+          </button>
+        </div>
       </div>
       {{/each}}
+  </div>
+  <div class="fixed-action-btn">
+    <a data-open-dialog data-template="umAddUser" class="btn-floating btn-large waves-effect waves-light"><i class="mdi-content-add"></i></a>
   </div>
 </template>

@@ -1,41 +1,30 @@
 <template name="umAddUser">
-    <div id="createuser" class="modal modal-fixed-footer">
-        {{#autoForm collection=users id="createUserForm" type="method" meteormethod="createUserWithoutPassword" validation="keyup"}}
-        <div class="modal-header">
-            <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat modal-header-button right">Save</button>
-            <a href="/users" class="modal-action modal-close waves-effect waves-green btn-flat modal-header-button left"><i class="mdi-navigation-close"></i></a>
-        </div>
-        <div class="modal-content">
-            <h4>Create User</h4>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-perm-identity prefix"></i>
-                    {{> afFieldInput name="profile.fullname" autocomplete="off"}}
-                <label class="active" for="fullname">Fullname</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-communication-email prefix"></i>
-                    {{> afFieldInput name="emails.0.address" autocomplete="off"}}
-                <label class="active" for="email">Email</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-perm-identity prefix"></i>
-                    {{> afFieldInput name="username" autocomplete="off"}}
-                <label class="active" for="username">Username</label>
-            </div>
-                {{#if groups}}
-                    {{> afFieldInput name="profile.groups"}}
-                {{/if}}
-                <!--{{> afFieldInput name="profile.fields"}}-->
-
-                {{#each globalFields}}
-                    {{> afFieldInput name=this.name}}
-                {{/each}}
-
-                <!--<div>-->
-                    <!--<button type="submit" class="btn btn-primary">{{save}}</button>-->
-                    <!--<button type="reset" class="btn btn-default">{{abort}}</button>-->
-                <!--</div>-->
-        </div>
-        {{/autoForm}}
+  {{#autoForm collection=users id="createUserForm" type="method" meteormethod="createUserWithoutPassword" validation="keyup"}}
+  <div class="modal-content">
+    <h4>Create User</h4>
+    <div class="input-field input-with-icon">
+      <i class="mdi-action-perm-identity prefix"></i>
+      {{> afQuickField name="profile.fullname" autocomplete="off"}}
     </div>
+    <div class="input-field input-with-icon">
+      <i class="mdi-communication-email prefix"></i>
+      {{> afQuickField name="emails.0.address" autocomplete="off"}}
+    </div>
+    <div class="input-field input-with-icon">
+      <i class="mdi-action-perm-identity prefix"></i>
+      {{> afQuickField name="username" autocomplete="off"}}
+    </div>
+    {{#if groups}}
+    {{> afQuickField name="profile.groups"}}
+    {{/if}}
+
+    {{#each globalFields}}
+    {{> afQuickField name=this.name}}
+    {{/each}}
+
+  </div>
+  <div class="modal-footer">
+    <input type="submit" data-bind="click: okay" class="waves-effect btn-flat" value="create">
+  </div>
+  {{/autoForm}}
 </template>

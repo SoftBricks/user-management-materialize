@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0.5');
-  api.use(['templating'], 'client');
+  api.use(['templating', 'underscore'], 'client');
   api.use('useraccounts:materialize', ['client', 'server']);
   api.use('softbricks:user-management', ['client', 'server']);
   api.use('materialize:materialize',['client']);
@@ -22,6 +22,8 @@ Package.onUse(function(api) {
   // TO-DO add compiled css files!
   api.use('stolinski:stylus-multi');
   api.addFiles(['lib/stylesheets/list.styl'], 'client');
+  api.addFiles(['lib/stylesheets/buttons.styl'], 'client');
+  api.addFiles(['lib/stylesheets/inputs.styl'], 'client');
 
 
   api.addFiles(['lib/style.css'], 'client');
