@@ -13,10 +13,15 @@
     &:hover
       background rgba(0,0,0,0.05)
 
+    &.list-item-with-secondary-action > *
+      right 56px
+
     > *
       position absolute
       top 0
       bottom 0
+      left 0
+      right 0
       display flex
       align-items center
 
@@ -26,7 +31,7 @@
           font-weight 300
 
     > :first-child
-      left 16
+      left 16px
       > i
         font-size 24px
         color rgba(0,0,0,0.54)
@@ -36,6 +41,10 @@
 
     > :last-child
       right 16px
+
+    > .secondary-action
+      left auto
+      width 40px
 
   .list-heading
   	padding 0 16px

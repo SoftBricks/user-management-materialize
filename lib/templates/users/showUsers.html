@@ -1,7 +1,7 @@
 <template name="umShowUsers">
   <div class="um">
       {{#each users}}
-      <div class="list-item user-item">
+      <div class="list-item list-item-with-secondary-action">
         <div>
           <img src="{{gravatar}}" alt="" class="circle">
         </div>
@@ -11,7 +11,15 @@
             <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
           </div>
         </div>
+        <div class="secondary-action">
+          <button id="enroll" class="btn-icon waves-effect">
+            <i class="mdi-content-send right"></i>
+          </button>
+        </div>
       </div>
       {{/each}}
+  </div>
+  <div class="fixed-action-btn">
+    <a data-open-dialog data-template="umAddUser" class="btn-floating btn-large waves-effect waves-light"><i class="mdi-content-add"></i></a>
   </div>
 </template>
