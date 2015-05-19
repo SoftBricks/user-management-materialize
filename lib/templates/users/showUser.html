@@ -1,12 +1,22 @@
 <template name="umShowUser">
-    <div id="test" class="col s12 l12">
-      <!-- <ul class="collection collection-medium">
-        {{> infoItem value=this.profile.fullname}}
-      </ul> -->
-      {{#autoView id="showUserInfo" schema=userschema doc=this}}
+    <div class="um">
+    {{#autoView id="showUserInfo" schema=userschema doc=user}}
         {{>infoItem name="profile.fullname"}}
         {{>infoItem name="username"}}
-      {{/autoView}}
+        {{#with user}}
+        <div class="list-item">
+            <div>
+                <img src="{{gravatar}}" alt="" class="circle">
+            </div>
+            <div>
+                <a class="waves-effect waves-light btn">{{_ 'upload'}}</a>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        {{/with}}
+        {{>infoItem name="emails.$.address"}}
+    {{/autoView}}
         <!-- <div class="row">
             <div class="input-field col s12 m12 l12">
                 <i class="mdi-action-perm-identity prefix"></i>

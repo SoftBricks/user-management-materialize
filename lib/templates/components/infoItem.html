@@ -1,10 +1,11 @@
 <template name="infoItem">
   {{#with data}}
-  <li class="info-item">
-    <div class="info-item-text">
+  <div class="list-item">
+    <div class="info-item-text two-lines">
       <div class="primary">{{value}}</div>
       <div class="secondary">{{label}}</div>
     </div>
-  </li>
+  </div>
+  <div class="divider"></div>
   {{/with}}
 </template>

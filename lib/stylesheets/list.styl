@@ -1,3 +1,5 @@
+@import 'colors'
+
 .um
   .divider
     margin-left 16px
@@ -11,7 +13,7 @@
     font-weight 400
 
     &:hover
-      background rgba(0,0,0,0.05)
+      // background rgba(0,0,0,0.05)
 
     &.list-item-with-secondary-action > *
       right 56px
@@ -25,10 +27,15 @@
       display flex
       align-items center
 
-      > *
+      &.two-lines
+        flex-direction column
+        justify-content center
+        align-items flex-start
         line-height normal
-        > .secondary
+        >.secondary
           font-weight 300
+          font-size 14px
+          color secondary-text
 
     > :first-child
       left 16px
