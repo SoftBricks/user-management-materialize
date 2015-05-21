@@ -17,12 +17,10 @@ Package.onUse(function (api) {
 	api.use('softbricks:user-management', ['client', 'server']);
 	api.use('materialize:materialize', ['client']);
 	api.use('fastclick', ['client']);
-	api.use('tap:i18n@1.4.0', ['client', 'server']);
 	api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
 
 	// TO-DO add compiled css files!
 	api.use('stolinski:stylus-multi');
-	api.addFiles("package-tap.i18n", ["client", "server"]);
 	api.addFiles(['lib/stylesheets/list.styl'], 'client');
 	api.addFiles(['lib/stylesheets/buttons.styl'], 'client');
 	api.addFiles(['lib/stylesheets/inputs.styl'], 'client');
