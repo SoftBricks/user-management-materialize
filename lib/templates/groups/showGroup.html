@@ -1,8 +1,31 @@
 <template name="umShowGroup">
   <div class="um">
-  {{#autoView id="showGroupInfo" schema=groupschema doc=group}}
+    {{#with group}}
+  {{#autoView id="showGroupInfo" schema=groupschema doc=this}}
       {{>infoItem name="groupname"}}
-      {{#with group}}
+
+      <div class="list-item">
+        <div class="info-item-text two-lines">
+          <div class="primary">{{leaderEmail}}</div>
+          <div class="secondary">Leader</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="list-item">
+        <div class="info-item-text two-lines">
+          <div class="primary">{{parentGroupName}}</div>
+          <div class="secondary">Parent Group</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="list-item user-item z-depth-1 noPadding noMarginTop">
+
+          {{#each users}}
+              <div class="info-item-text">
+                  <div class="primary">{{user}}</div>
+              </div>
+          {{/each}}
+      </div>
       <div class="list-item">
           <div>
               <a class="waves-effect waves-light btn">{{umText 'button' 'upload'}}</a>
@@ -10,7 +33,7 @@
       </div>
       <div class="divider"></div>
 
-      {{/with}}
   {{/autoView}}
+  {{/with}}
 </div>
 </template>

@@ -67,6 +67,9 @@ Package.onUse(function (api) {
 	api.addFiles(['lib/templates/groups/editGroup.html',
 		'lib/templates/groups/editGroup.js'
 	], 'client');
+	api.addFiles(['lib/templates/users/searchUser.html',
+		'lib/templates/users/searchUser.js'
+	], 'client');
 
 
 });
