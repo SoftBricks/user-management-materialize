@@ -1,0 +1,10 @@
+<template name="umShowGroupMembers">
+  {{#each users}}
+  <div class="list-item list-item-with-secondary-action user-item z-depth-1">
+    <div class="info-item-text two-lines">
+      <div class="primary">{{this}}</div>
+      <div class="secondary">Email</div>
+    </div>
+  </div>
+  {{/each}}
+</template>
