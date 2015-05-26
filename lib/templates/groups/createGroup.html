@@ -1,8 +1,6 @@
 <template name="umAddGroup">
-    {{test}}
-    <div id="creategroup" class="modal modal-fixed-footer">
-        <div class="modal-content">
-            {{#autoForm collection=groups id="createGroupForm" type="method" meteormethod="createGroup" validation="keyup"}}
+            {{#autoForm collection="Groups" id="createGroupForm" type="method" meteormethod="createGroup" validation="keyup"}}
+            <div class="modal-content">
                     <div class="input-field col s12 m12 l12">
                         <i class="mdi-communication-email prefix"></i>
                             {{> afFieldInput name="groupname" autocomplete="off"}}
@@ -40,7 +38,6 @@
                     <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat right">Save</button>
                     <a href="/groups" class="modal-action modal-close waves-effect waves-green btn-flat left"><i class="mdi-navigation-close"></i></a>
                 </div>
+            </div>
             {{/autoForm}}
-        </div>
-    </div>
 </template>

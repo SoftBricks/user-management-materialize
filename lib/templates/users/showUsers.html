@@ -1,7 +1,7 @@
 <template name="umShowUsers">
   <div class="um">
       {{#each users}}
-      <div class="list-item list-item-with-secondary-action user-item">
+      <div class="list-item list-item-with-secondary-action user-item z-depth-1">
         <div>
           <img src="{{gravatar}}" alt="" class="circle">
         </div>
@@ -16,9 +16,6 @@
         </div>
       </div>
       {{/each}}
-  </div>
-  <div class="fixed-action-btn">
-    <a data-open-dialog data-template="umAddUser" class="btn-floating btn-large waves-effect waves-light"><i class="mdi-content-add"></i></a>
   </div>
 </template>
 <template name="umShowUsersToolbar">
