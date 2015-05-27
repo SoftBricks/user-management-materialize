@@ -52,6 +52,9 @@ Package.onUse(function (api) {
 	api.addFiles(['lib/templates/users/createUser.html',
 		'lib/templates/users/createUser.js'
 	], 'client');
+	api.addFiles(['lib/templates/groups/showGroupMembers.html',
+		'lib/templates/groups/showGroupMembers.js'
+	], 'client');
 	api.addFiles(['lib/templates/groups/showGroups.html',
 		'lib/templates/groups/showGroups.js'
 	], 'client');
@@ -69,9 +72,6 @@ Package.onUse(function (api) {
 	], 'client');
 	api.addFiles(['lib/templates/users/searchUser.html',
 		'lib/templates/users/searchUser.js'
-	], 'client');
-	api.addFiles(['lib/templates/groups/showGroupMembers.html',
-		'lib/templates/groups/showGroupMembers.js'
 	], 'client');
 
 

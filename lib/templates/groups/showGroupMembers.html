@@ -1,10 +1,22 @@
 <template name="umShowGroupMembers">
+  <div class="um">
   {{#each users}}
-  <div class="list-item list-item-with-secondary-action user-item z-depth-1">
-    <div class="info-item-text two-lines">
-      <div class="primary">{{this}}</div>
-      <div class="secondary">Email</div>
+    {{#with user}}
+    <div class="list-item list-item-with-secondary-action user-item z-depth-1">
+      <div>
+        <img src="{{gravatar}}" alt="" class="circle">
+      </div>
+      <div class="info-item-text two-lines">
+        <div class="primary">{{this.username}}</div>
+        <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
+      </div>
+      <div class="secondary-action">
+        <button id="" class="btn-icon waves-effect">
+          <i class="mdi-action-highlight-remove right"></i>
+        </button>
+      </div>
     </div>
-  </div>
+    {{/with}}
   {{/each}}
+</div>
 </template>
