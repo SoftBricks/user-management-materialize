@@ -15,7 +15,6 @@ Package.onUse(function (api) {
 	api.use(['templating', 'underscore'], 'client');
 	api.use('useraccounts:materialize', ['client', 'server']);
 	api.use('softbricks:user-management', ['client', 'server']);
-	api.use('materialize:materialize', ['client']);
 	api.use('gildaspk:autoform-materialize', ['client']);
 	api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
 
