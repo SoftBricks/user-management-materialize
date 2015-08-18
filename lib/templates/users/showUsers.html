@@ -1,10 +1,10 @@
 <template name="umShowUsers">
   <div class="um">
       {{#each users}}
-      <div class="list-item list-item-with-secondary-action user-item z-depth-1">
-        <div>
+      <div class="list-item list-item-with-secondary-action user-item">
+        <!-- <div>
           <img src="{{gravatar}}" alt="" class="circle">
-        </div>
+        </div> -->
         <div class="info-item-text two-lines">
           <div class="primary">{{this.username}}</div>
           <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
@@ -15,6 +15,7 @@
           </button>
         </div>
       </div>
+      <div class="divider"></div>
       {{/each}}
   </div>
 </template>

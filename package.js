@@ -16,7 +16,7 @@ Package.onUse(function (api) {
 	api.use('useraccounts:materialize', ['client', 'server']);
 	api.use('softbricks:user-management', ['client', 'server']);
 	api.use('materialize:materialize', ['client']);
-	api.use('fastclick', ['client']);
+	api.use('gildaspk:autoform-materialize', ['client']);
 	api.imply('softbricks:user-management@0.0.1', ['client', 'server']);
 
 	// TO-DO add compiled css files!
@@ -25,6 +25,7 @@ Package.onUse(function (api) {
 	api.addFiles(['lib/stylesheets/buttons.styl'], 'client');
 	api.addFiles(['lib/stylesheets/inputs.styl'], 'client');
 	api.addFiles(['lib/stylesheets/navbar.styl'], 'client');
+	api.addFiles(['lib/stylesheets/form.styl'], 'client');
 
 
 	api.addFiles(['lib/style.css'], 'client');

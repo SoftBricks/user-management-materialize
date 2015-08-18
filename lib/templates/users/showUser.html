@@ -1,38 +1,21 @@
 <template name="umShowUser">
     <div class="um">
-    {{#autoView id="showUserInfo" schema=userschema doc=user}}
-        {{>infoItem name="profile.fullname"}}
-        {{>infoItem name="username"}}
-        {{#with user}}
-        <div class="list-item">
-            <div>
-                <img src="{{gravatar}}" alt="" class="circle">
+        {{#autoView id="showUserInfo" schema=userschema doc=user}}
+            {{>infoItem name="profile.fullname"}}
+            {{>infoItem name="username"}}
+            {{#with user}}
+            <!-- <div class="list-item">
+                <div>
+                    <img src="{{gravatar}}" alt="" class="circle">
+                </div>
+                <div>
+                    <a class="waves-effect waves-light btn">{{umText 'button' 'upload'}}</a>
+                </div>
             </div>
-            <div>
-                <a class="waves-effect waves-light btn">{{umText 'button' 'upload'}}</a>
-            </div>
-        </div>
-        <div class="divider"></div>
+            <div class="divider"></div> -->
 
-        {{/with}}
-        {{>infoItem name="emails.$.address"}}
-    {{/autoView}}
-        <!-- <div class="row">
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-perm-identity prefix"></i>
-                <input disabled id="fullname" value="{{this.profile.fullname}}" type="text" class="validate">
-                <label class="active" for="fullname">Fullname</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-perm-identity prefix"></i>
-                <input disabled id="username" value="{{this.username}}" type="text" class="validate">
-                <label class="active" for="username">Username</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-communication-email prefix"></i>
-                <input disabled id="email" type="email" value="{{email}}" class="validate">
-                <label class="active" for="email">Email</label>
-            </div>
-        </div> -->
+            {{/with}}
+            {{>infoItem name="emails.$.address"}}
+        {{/autoView}}
     </div>
 </template>
