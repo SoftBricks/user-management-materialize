@@ -6,8 +6,8 @@
           <img src="{{gravatar}}" alt="" class="circle">
         </div> -->
         <div class="info-item-text two-lines">
-          <div class="primary">{{this.username}}</div>
-          <div class="secondary">{{this.profile.fullname}} - {{#each this.emails}}{{address}}{{/each}}</div>
+          <div class="primary">{{#each this.emails}}{{address}}{{/each}}</div>
+          <div class="secondary">{{this.profile.fullname}}</div>
         </div>
         <div class="secondary-action">
           <button id="enroll" class="btn-icon waves-effect">

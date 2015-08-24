@@ -1,6 +1,6 @@
 <template name="umEditUser">
   {{#with user}}
-    {{#autoForm collection=users doc=this id="editUserForm" type="update"  validation="keyup" class="col s12 l12"}}
+    {{#autoForm collection=users doc=this id="editUserForm" type="update"}}
 
         {{> afQuickField name="profile.fullname" autocomplete="off" value=this.profile.fullname}}
 
