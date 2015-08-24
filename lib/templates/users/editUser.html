@@ -10,7 +10,7 @@
 
             {{> afQuickField name="emails.0.address" autocomplete="off" value=email}}
 
-            {{> afFieldInput name="emails.0.verified"}}
+            {{> afQuickField name="emails.0.verified" type="boolean-checkbox" value=verified}}
 
         {{/if}}
         {{#if isInRole 'admin,superAdmin'}}
