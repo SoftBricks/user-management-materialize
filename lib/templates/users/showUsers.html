@@ -13,11 +13,13 @@
       <div class="divider"></div>
       {{/each}}
   </div>
-  <div class="fixed-action-btn">
-      <a href="/addUser" class="waves-effect btn-floating btn-large">
-          <i class="material-icons">person_add</i>
-      </a>
-  </div>
+  {{#if isInRole 'admin,superAdmin'}}
+      <div class="fixed-action-btn">
+          <a href="/addUser" class="waves-effect btn-floating btn-large">
+              <i class="material-icons">person_add</i>
+          </a>
+      </div>
+  {{/if}}
 </template>
 <template name="umShowUsersToolbar">
   {{_ 'users'}}
