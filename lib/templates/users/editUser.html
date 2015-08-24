@@ -15,12 +15,11 @@
         {{/if}}
         {{#if isInRole 'admin,superAdmin'}}
             {{#if roles}}
-
                 <label class="active" for="admin">{{_ "roles"}}</label>
                 {{#each roles}}
                     <p>
-                        <input type="checkbox" id="{{name}}" name="roles" checked="{{userHasRight}}"/>
-                        <label for="{{name}}">{{_ "UserIs"}} {{name}}</label>
+                        <input type="checkbox" id="{{name}}" name="roles" checked="{{userHasRight}}" disabled="{{#if isCurrentUser ..}}{{#if isAdminRole}}disabled{{/if}}{{/if}}"/>
+                        <label for="{{name}}">{{_ "UserIs"}} {{_ name}}</label>
                     </p>
                 {{/each}}
 
