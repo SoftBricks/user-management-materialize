@@ -25,6 +25,14 @@
                     </div>
                 </div>
             {{/autoView}}
+
+            {{#if isInRole 'admin,superAdmin'}}
+                <div class="fixed-action-btn">
+                    <a href="/editGroup/{{_id}}" class="waves-effect btn-floating btn-large">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </div>
+            {{/if}}
         {{/with}}
     </div>
 </template>
