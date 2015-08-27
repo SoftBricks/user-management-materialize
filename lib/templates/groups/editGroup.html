@@ -1,48 +1,42 @@
 <template name="umEditGroup">
-  {{#with group}}
-    {{#autoForm collection=groups doc=this id="editGroupForm" type="update"  validation="keyup" class="col s12 l12"}}
-        <div class="row">
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-label-outline prefix"></i>
-                {{> afFieldInput name="groupname" autocomplete="off" value=this.groupname class="validate"}}
-                <label class="active" for="groupname">Groupname</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-action-perm-identity prefix"></i>
-                {{> afFieldInput name="leader" autocomplete="off" value=leaderEmail class="validate"}}
-                <label class="active" for="leader">Leader</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-communication-call-made prefix"></i>
-                {{> afFieldInput name="parentGroup" autocomplete="off" value=parentGroupName class="validate"}}
-                <label class="active" for="parentGroup">Parent Group</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <i class="mdi-social-person-add prefix"></i>
-                <input type="text" placeholder="Email" id="users" class="validate">
-                <ul class="collection" style="background-color: white">
-                    {{#each getUsersForGroup}}
-                        <li class="collection-item clickableSpan" id="{{this._id}}">{{email}}</li>
-                    {{/each}}
-                </ul>
-                <label class="active" for="users">Add User</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <ul class="collection">
-                    {{#each users}}
-                        <li class="collection-item">
-                            <div>{{user}}<a id="removeUser" class="removeUser secondary-content"><i
-                                    class="small mdi-navigation-cancel"></i></a></div>
-                        </li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
+    {{#with group}}
+        {{#autoForm collection=groups doc=this id="editGroupForm" type="update"}}
 
-        <div>
-            <button type="submit" class="btn btn-primary">{{save}}</button>
-            <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
-        </div>
-    {{/autoForm}}
+            {{> afQuickField name="groupname" autocomplete="off" value=this.groupname class="validate"}}
+
+
+            {{> afQuickField name="leader" autocomplete="off" value=leaderEmail class="validate"}}
+
+
+            {{> afQuickField name="parentGroup" autocomplete="off" value=parentGroupName class="validate"}}
+
+
+            <input type="text" placeholder="Email" id="users" class="validate">
+            <ul class="collection" style="background-color: white">
+                {{#each getUsersForGroup}}
+                <li class="collection-item clickableSpan" id="{{this._id}}">{{email}}</li>
+                {{/each}}
+            </ul>
+            <label class="active" for="users">Add User</label>
+
+
+            <ul class="collection">
+                {{#each users}}
+                <li class="collection-item">
+                    <div>
+                        {{user}}
+                        <a id="removeUser" class="removeUser secondary-content">
+                            <i class="small mdi-navigation-cancel"></i>
+                        </a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+
+            <div>
+                <button type="submit" class="btn btn-primary">{{save}}</button>
+                <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
+            </div>
+        {{/autoForm}}
     {{/with}}
 </template>
