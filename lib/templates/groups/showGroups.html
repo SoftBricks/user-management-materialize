@@ -1,13 +1,19 @@
 <template name="umShowGroups">
-    <div class="list-item user-item z-depth-1 noPadding noMarginTop">
+    <div class="um um-list">
         {{#each groups}}
-            <div id="{{this._id}}" class=" avatar {{clicked}}">
-              <div class="info-item-text">
-                <a href="/showGroups/{{this._id}}" style="display:block;height:100%;">
-                    <div class="primary">{{this.groupname}}</div>
-                </a>
-              </div>
+            <div class="list-item clickable">
+                <div>
+                    {{this.groupname}}
+                </div>
             </div>
+            <div class="divider"></div>
         {{/each}}
     </div>
+    {{#if isInRole 'admin,superAdmin'}}
+        <div class="fixed-action-btn">
+            <a href="/addGroup" class="waves-effect btn-floating btn-large">
+                <i class="material-icons">group_add</i>
+            </a>
+        </div>
+    {{/if}}
 </template>

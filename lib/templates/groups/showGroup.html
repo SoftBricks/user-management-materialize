@@ -1,38 +1,30 @@
 <template name="umShowGroup">
-  <div class="um">
-    {{#with group}}
-  {{#autoView id="showGroupInfo" schema=groupschema doc=this}}
-      {{>infoItem name="groupname"}}
+    <div class="um">
+        {{#with group}}
+            {{#autoView id="showGroupInfo" schema=groupschema doc=this}}
+                {{>infoItem name="groupname"}}
 
-      <div class="list-item">
-        <div class="info-item-text two-lines">
-          <div class="primary">{{leaderEmail}}</div>
-          <div class="secondary">Leader</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="list-item">
-        <div class="info-item-text two-lines">
-          <div class="primary">{{parentGroupName}}</div>
-          <div class="secondary">Parent Group</div>
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="list-item">
-          <div class="info-item-text two-lines">
-              <div class="primary">{{numberOfMembers}}</div>
-              <div class="secondary">Number of Members</div>
-          </div>
-      </div>
-      <div class="divider"></div>
-      <div class="list-item">
-          <div>
-              <a class="waves-effect waves-light btn">{{umText 'button' 'upload'}}</a>
-          </div>
-      </div>
-      <div class="divider"></div>
-
-  {{/autoView}}
-  {{/with}}
-</div>
+                <div class="list-item">
+                    <div class="info-item-text two-lines">
+                        <div class="primary">{{leaderEmail}}</div>
+                        <div class="secondary">{{_ 'leader'}}</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="list-item">
+                    <div class="info-item-text two-lines">
+                        <div class="primary">{{parentGroupName}}</div>
+                        <div class="secondary">{{_ 'parentGroup'}}</div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="list-item">
+                    <div class="info-item-text two-lines">
+                        <div class="primary">{{numberOfMembers}}</div>
+                        <div class="secondary">{{_ 'numberOfMembers'}}</div>
+                    </div>
+                </div>
+            {{/autoView}}
+        {{/with}}
+    </div>
 </template>
