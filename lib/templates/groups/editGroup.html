@@ -10,28 +10,32 @@
 
             {{> afQuickField name="parentGroup" autocomplete="off" value=parentGroupName class="validate"}}
 
-
-            <input type="text" placeholder="Email" id="users" class="validate">
-            <ul class="collection" style="background-color: white">
+            {{_ 'addUsers'}}:
+            <div class="input-field">
+              <input id="users" type="text">
+              <label for="users">{{_ 'emailAddress'}}</label>
+            </div>
+            <div class="list z-depth-2 add-user-search" style="background-color: white">
                 {{#each getUsersForGroup}}
-                <li class="collection-item clickableSpan" id="{{this._id}}">{{email}}</li>
+                    <div class="list-item clickableSpan" id="{{this._id}}">{{email}}</div>
                 {{/each}}
-            </ul>
-            <label class="active" for="users">Add User</label>
+            </div>
 
-
-            <ul class="collection">
+            {{_ 'members'}}:
+            <div class="list">
                 {{#each users}}
-                <li class="collection-item">
-                    <div>
-                        {{user}}
-                        <a id="removeUser" class="removeUser secondary-content">
-                            <i class="small mdi-navigation-cancel"></i>
-                        </a>
+                    <div class="list-item">
+                        <div>
+                            {{user}}
+                        </div>
+                        <div class="secondary-action">
+                            <div id="removeUser" class="waves-effect btn-icon">
+                                <i class="material-icons">clear</i>
+                            </div>
+                        </div>
                     </div>
-                </li>
                 {{/each}}
-            </ul>
+            </div>
 
             <div>
                 <button type="submit" class="btn btn-primary">{{save}}</button>
