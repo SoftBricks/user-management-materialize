@@ -1,40 +1,44 @@
 <template name="umEditUser">
-  {{#with user}}
-    {{#autoForm collection=users doc=this id="editUserForm" type="update"}}
+    {{#with user}}
+        <div class="um">
+            {{#autoForm collection="Meteor.users" doc=this id="editUserForm" type="update"}}
 
-        {{> afQuickField name="profile.fullname" autocomplete="off" value=this.profile.fullname}}
-
-        {{> afQuickField name="username" autocomplete="off" value=this.username}}
-
-        {{#if isInRole 'admin,superAdmin'}}
-
-            {{> afQuickField name="emails.0.address" autocomplete="off" value=email}}
-
-            {{> afQuickField name="emails.0.verified" type="boolean-checkbox" value=verified}}
-
-        {{/if}}
-        {{#if isInRole 'admin,superAdmin'}}
-            {{#if roles}}
-                <label class="active" for="admin">{{_ "roles"}}</label>
-                {{#each roles}}
-                    <p>
-                        <input type="checkbox" id="{{name}}" name="roles" checked="{{userHasRight}}" disabled="{{#if isCurrentUser ..}}{{#if isAdminRole}}disabled{{/if}}{{/if}}"/>
-                        <label for="{{name}}">{{_ "UserIs"}} {{_ name}}</label>
-                    </p>
+                {{#each showFields}}
+                    {{> afQuickField name=this autocomplete="off"}}
                 {{/each}}
 
-            {{/if}}
-        {{/if}}
+                {{#if isInRole 'admin,superAdmin'}}
+
+                    {{> afQuickField name="emails.0.address" autocomplete="off" value=email}}
+
+                    {{> afQuickField name="emails.0.verified" type="boolean-checkbox" value=verified}}
+
+                {{/if}}
+                {{#if isInRole 'admin,superAdmin'}}
+                    {{#if roles}}
+                        <label class="active" for="admin">{{_ "roles"}}</label>
+                        {{#each roles}}
+                            <p>
+                                <input type="checkbox" id="{{name}}" name="roles" checked="{{userHasRight}}" disabled="{{#if isCurrentUser ..}}{{#if isAdminRole}}disabled{{/if}}{{/if}}"/>
+                                <label for="{{name}}">{{_ "UserIs"}} {{_ name}}</label>
+                            </p>
+                        {{/each}}
+
+                    {{/if}}
+                {{/if}}
 
 
-            <!--{{#each globalFields}}-->
-        <!--{{> afQuickField name=this.name}}-->
-            <!--{{/each}}-->
+                    <!--{{#each globalFields}}-->
+                <!--{{> afQuickField name=this.name}}-->
+                    <!--{{/each}}-->
 
-        <div>
-            <button type="submit" class="btn btn-primary waves-effect">{{save}}</button>
-            <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit" class="btn btn-primary waves-effect">{{save}}</button>
+                    </div>
+                    <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
+                </div>
+            {{/autoForm}}
         </div>
-    {{/autoForm}}
     {{/with}}
 </template>

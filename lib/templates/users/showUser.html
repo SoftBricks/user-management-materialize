@@ -1,26 +1,19 @@
 <template name="umShowUser">
-    <div class="um">
-        {{#autoView id="showUserInfo" schema=userschema doc=user}}
-            {{>infoItem name="profile.fullname"}}
-            {{>infoItem name="username"}}
-            {{#with user}}
-            <!-- <div class="list-item">
-                <div>
-                    <img src="{{gravatar}}" alt="" class="circle">
-                </div>
-                <div>
-                    <a class="waves-effect waves-light btn">{{umText 'button' 'upload'}}</a>
-                </div>
-            </div>
-            <div class="divider"></div> -->
-
-            {{/with}}
-            {{>infoItem name="emails.$.address"}}
-        {{/autoView}}
-    </div>
+    {{> umShowProfile}}
     <div class="fixed-action-btn">
         <a href="/editUser/{{user._id}}" class="waves-effect btn-floating btn-large">
             <i class="material-icons">edit</i>
         </a>
+    </div>
+</template>
+
+<template name="umShowProfile">
+    <div class="um">
+        {{#autoView id="showUserInfo" schema=userschema doc=user}}
+            {{>infoItem name="emails.$.address"}}
+            {{#each showFields}}
+                {{>infoItem name=this}}
+            {{/each}}
+        {{/autoView}}
     </div>
 </template>
