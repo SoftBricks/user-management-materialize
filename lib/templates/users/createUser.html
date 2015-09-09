@@ -1,27 +1,23 @@
 <template name="umAddUser">
     <div class="um">
-      {{#autoForm id="createUserForm" type="insert" collection=users}}
-        <div class="input-field input-with-icon">
-            {{> afQuickField name="profile.fullname" autocomplete="off"}}
-        </div>
-        <div class="input-field input-with-icon">
+        {{#autoForm collection="Meteor.users" id="createUserForm" type="insert"}}
+
+            {{#each showFields}}
+                {{> afQuickField name=this autocomplete="off"}}
+            {{/each}}
+
             {{> afQuickField name="emails.0.address" autocomplete="off"}}
             <div class="hidden">
                 {{> afQuickField name="emails.0.verified" autocomplete="off"}}
             </div>
-        </div>
+            <!-- {{#if groups}}
+            {{> afQuickField name="profile.groups"}}
+            {{/if}} -->
 
-        <div class="input-field input-with-icon">
-          {{> afQuickField name="username" autocomplete="off"}}
-        </div>
-        <!-- {{#if groups}}
-        {{> afQuickField name="profile.groups"}}
-        {{/if}} -->
-
-        <!-- {{#each globalFields}}
-        {{> afQuickField name=this.name}}
-        {{/each}} -->
-        <button type="submit" class="btn btn-primary waves-effect">{{_ 'create'}}</button>
-      {{/autoForm}}
-    </div>
+            <!-- {{#each globalFields}}
+            {{> afQuickField name=this.name}}
+            {{/each}} -->
+            <button type="submit" class="btn btn-primary waves-effect">{{_ 'create'}}</button>
+        {{/autoForm}}
+</div>
 </template>
