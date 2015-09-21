@@ -10,11 +10,21 @@
 <template name="umShowProfile">
     <div class="um">
         {{#autoView id="showUserInfo" schema=userschema doc=user}}
-            <!-- {{>infoItem name="emails.$.address"}} -->
+
             {{#each showFields}}
-                <!-- {{this}} -->
-                {{>infoItem name=this}}
+
+                {{#if isInRole 'admin,superAdmin'}}
+                    {{#if contains visible 'admin'}}
+                        {{>infoItem name=key}}
+                    {{/if}}
+                {{else}}
+                    {{#if contains visible 'user'}}
+                        {{>infoItem name=key}}
+                    {{/if}}
+                {{/if}}
+
             {{/each}}
+
         {{/autoView}}
     </div>
 </template>

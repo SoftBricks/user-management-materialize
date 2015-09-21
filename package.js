@@ -29,6 +29,8 @@ Package.onUse(function (api) {
 
 	api.addFiles(['lib/style.css'], 'client');
 
+	api.addFiles('lib/templates/helpers.js', 'client');
+
 	api.addFiles(['lib/templates/components/infoItem.html',
 		'lib/templates/components/infoItem.js'
 	], 'client');
