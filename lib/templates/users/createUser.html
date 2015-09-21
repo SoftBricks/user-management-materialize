@@ -3,20 +3,21 @@
         {{#autoForm collection="Meteor.users" id="createUserForm" type="insert"}}
 
             {{#each showFields}}
-                {{> afQuickField name=this autocomplete="off"}}
-            {{/each}}
 
-            {{> afQuickField name="emails.0.address" autocomplete="off"}}
-            <div class="hidden">
-                {{> afQuickField name="emails.0.verified" autocomplete="off"}}
-            </div>
+                {{#if isInRole 'admin,superAdmin'}}
+                    {{#if contains editable 'admin'}}
+                        {{> afQuickField name=key}}
+                    {{/if}}
+                {{else}}
+                    {{#if contains editable 'user'}}
+                        {{> afQuickField name=key}}
+                    {{/if}}
+                {{/if}}
+
+            {{/each}}
             <!-- {{#if groups}}
             {{> afQuickField name="profile.groups"}}
             {{/if}} -->
-
-            <!-- {{#each globalFields}}
-            {{> afQuickField name=this.name}}
-            {{/each}} -->
             <button type="submit" class="btn btn-primary waves-effect">{{_ 'create'}}</button>
         {{/autoForm}}
 </div>
