@@ -1,46 +1,49 @@
 <template name="umEditGroup">
     {{#with group}}
-        {{#autoForm collection=groups doc=this id="editGroupForm" type="update"}}
+        <div class="um">
+            {{#autoForm collection=groups doc=this id="editGroupForm" type="update"}}
 
-            {{> afQuickField name="groupname" autocomplete="off" value=this.groupname class="validate"}}
+                {{> afQuickField name="groupname" autocomplete="off" value=this.groupname class="validate"}}
 
+                {{_ 'addUsers'}}:
+                <div class="input-field">
+                  <input id="users" type="text">
+                  <label for="users">{{_ 'emailAddress'}}</label>
+                </div>
+                <div class="list z-depth-2 add-user-search" style="background-color: white">
+                    {{#each getUsersForGroup}}
+                        <div class="list-item clickableSpan" id="{{this._id}}">{{email}}</div>
+                    {{/each}}
+                </div>
 
-            {{> afQuickField name="leader" autocomplete="off" value=leaderEmail class="validate"}}
-
-
-            {{> afQuickField name="parentGroup" autocomplete="off" value=parentGroupName class="validate"}}
-
-            {{_ 'addUsers'}}:
-            <div class="input-field">
-              <input id="users" type="text">
-              <label for="users">{{_ 'emailAddress'}}</label>
-            </div>
-            <div class="list z-depth-2 add-user-search" style="background-color: white">
-                {{#each getUsersForGroup}}
-                    <div class="list-item clickableSpan" id="{{this._id}}">{{email}}</div>
-                {{/each}}
-            </div>
-
-            {{_ 'members'}}:
-            <div class="list">
-                {{#each users}}
-                    <div class="list-item">
-                        <div>
-                            {{user}}
-                        </div>
-                        <div class="secondary-action">
-                            <div id="removeUser" class="waves-effect btn-icon">
-                                <i class="material-icons">clear</i>
+                {{_ 'members'}}:
+                <!-- <div class="list member-list"> -->
+                    {{#each users}}
+                        <div class="list-item">
+                            <div>
+                                {{user}}
+                            </div>
+                            <div class="secondary-action">
+                                <div id="removeUser" class="waves-effect btn-icon">
+                                    <i class="material-icons">clear</i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {{/each}}
-            </div>
+                    {{/each}}
+                    {{#unless users}}
+                        <div class="list-item">
+                            <div>
+                                {{_ 'noMembersYet'}}
+                            </div>
+                        </div>
+                    {{/unless}}
+                <!-- </div> -->
 
-            <div>
-                <button type="submit" class="btn btn-primary">{{save}}</button>
-                <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
-            </div>
-        {{/autoForm}}
+                <div>
+                    <button type="submit" class="btn btn-primary waves-effect">{{save}}</button>
+                    <!--<button id="removeUser" type="click" class="btn btn-primary">{{remove}}</button>-->
+                </div>
+            {{/autoForm}}
+        </div>
     {{/with}}
 </template>
