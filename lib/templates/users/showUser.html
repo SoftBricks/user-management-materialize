@@ -10,8 +10,9 @@
 <template name="umShowProfile">
     <div class="um">
         {{#autoView id="showUserInfo" schema=userschema doc=user}}
-            {{>infoItem name="emails.$.address"}}
+            <!-- {{>infoItem name="emails.$.address"}} -->
             {{#each showFields}}
+                <!-- {{this}} -->
                 {{>infoItem name=this}}
             {{/each}}
         {{/autoView}}
