@@ -3,12 +3,52 @@
         {{#with group}}
             {{#autoView id="showGroupInfo" schema=groupschema doc=this}}
                 {{>infoItem name="groupname"}}
+
                 <div class="list-item">
+
                     <div class="info-item-text two-lines">
                         <div class="primary">{{numberOfMembers}}</div>
                         <div class="secondary">{{_ 'numberOfMembers'}}</div>
                     </div>
+
                 </div>
+
+                <div class="list-item">
+
+                    <div class="info-item-text">
+
+                        <div class="list z-depth-2 add-user-search" style="background-color: white">
+                            {{#each getUsersForGroup}}
+                                <div class="list-item clickableSpan" id="{{this._id}}">{{email}}</div>
+                            {{/each}}
+                        </div>
+
+                        <div class="primary">{{_ 'members'}}:</div>
+                        <div class="secondary">
+
+                            <!-- <div class="list member-list"> -->
+                            {{#each users}}
+                                <div class="list-item">
+                                    <div>
+                                        {{user}}
+                                    </div>
+                                </div>
+                            {{/each}}
+                            {{#unless users}}
+                                <div class="list-item">
+                                    <div>
+                                        {{_ 'noMembersYet'}}
+                                    </div>
+                                </div>
+                            {{/unless}}
+                            <!-- </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             {{/autoView}}
 
             {{#if isInRole 'admin,superAdmin'}}

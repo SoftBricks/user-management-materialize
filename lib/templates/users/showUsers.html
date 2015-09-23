@@ -6,8 +6,8 @@
           <img src="{{gravatar}}" alt="" class="circle">
         </div> -->
         <div class="info-item-text two-lines">
-          <div class="primary">{{#each this.emails}}{{address}}{{/each}}</div>
-          <div class="secondary">{{this.profile.fullname}}</div>
+            <div class="primary">{{this.profile.fullname}}</div>
+            <div class="secondary">{{#each this.emails}}{{address}}{{/each}}</div>
         </div>
       </div>
       <div class="divider"></div>
