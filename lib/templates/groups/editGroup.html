@@ -10,7 +10,7 @@
                   <input id="users" type="text">
                   <label for="users">{{_ 'emailAddress'}}</label>
                 </div>
-                <div class="list z-depth-2 add-user-search" style="background-color: white">
+                <div class="list z-depth-1 add-user-search" style="background-color: white">
                     {{#each getUsersForGroup}}
                         <div class="list-item clickableSpan" id="{{this._id}}">{{email}}</div>
                     {{/each}}
