@@ -5,10 +5,12 @@
         <!-- <div>
           <img src="{{gravatar}}" alt="" class="circle">
         </div> -->
-        <div class="info-item-text two-lines">
-            <div class="primary">{{userItemPrimaryText}}</div>
-            <div class="secondary">{{userItemSecondaryText}}</div>
-        </div>
+        {{#with user}}
+          <div class="info-item-text two-lines">
+              <div class="primary">{{userItemPrimaryText}}</div>
+              <div class="secondary">{{userItemSecondaryText}}</div>
+          </div>
+        {{/with}}
       </div>
       <div class="divider"></div>
       {{/each}}
